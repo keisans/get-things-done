@@ -1,0 +1,22 @@
+<header>
+	<div id="user-nav">
+		<% if user_signed_in? %>
+			<span>Logged in as: <strong><%= current_user.email %></strong>.</span>
+			<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+		<% else %>
+			<%= link_to "Sign In", new_user_session_path %>
+			<%= link_to "Sign Up", new_user_registration_path %>
+		<% end %>
+	</div>
+
+	<div id="main-nav">
+		<nav>
+			<ul>
+				<li><%= link_to "Home", root_path %></li>
+				<li><%= link_to "Tasks", tasks_path %></li>
+				<li><%= link_to "Projects", projects_path %></li>
+				<li><%= link_to "Users", users_path %></li>
+			</ul>
+		</nav>
+	</div>
+</header>

@@ -1,1 +1,48 @@
 <h1>Hello, GTD</h1>
+
+<%= link_to "New Task", new_task_path %>
+
+<% if @incomplete.any? %>
+<table>
+<th>
+	<tr>
+		<td>Title</td>
+		<td>Due Date</td>
+	</tr>
+</th>
+<% @incomplete.each do |task| %>	
+	<tr>
+		<td><%= link_to task.title, task %></td>
+		<td><%= task.due_date.to_formatted_s(:short) %></td>
+	</tr>
+<% end %>
+</table>
+
+<% else %>
+
+<p>Yay, you don't have any incomplete tasks!</p>
+
+<% end %>
+
+<h3>Completed</h3>
+<% if @complete.any? %>
+<table>
+<th>
+	<tr>
+		<td>Title</td>
+		<td>Completion Date</td>
+	</tr>
+</th>
+<% @complete.each do |task| %>	
+	<tr>
+		<td><%= link_to task.title, task %></td>
+		<td><%= task.completion_date.to_formatted_s(:short) %></td>
+	</tr>
+<% end %>
+</table>
+
+<% else %>
+
+<p>You don't have any completed tasks, get back to work!</p>
+
+<% end %>

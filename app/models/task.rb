@@ -11,4 +11,15 @@ class Task < ActiveRecord::Base
   validates :project_id, :presence => true
   validates :user_id, :presence => true
 
+  scope :completed, where(:complete => true)
+
+  scope :incomplete, where(:complete => false)
+
+  def before_validation
+    date = Chronic.parse(due_date)
+    self.due_date = date.to_s(:db)
+  end
+
+  private
+
 end

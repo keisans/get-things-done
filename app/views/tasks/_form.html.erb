@@ -1,0 +1,9 @@
+<%= semantic_form_for @task do |form| %>
+	<%= form.inputs do %>
+		<%= form.input :title %>
+		<%= form.input :project %>
+		<%= form.input :due_date, :as => :string %>
+		<%= form.input :user %>
+	<% end %>
+	<%= form.actions %>
+<% end %>

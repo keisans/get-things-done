@@ -1,6 +1,19 @@
 Gtddd::Application.routes.draw do
-  
+
+  authenticated :user do
+    root :to => "home#show"
+  end
+
+  root :to => "home#index"
+
+  match 'tasks/:id/complete' => 'tasks#complete', :as => :complete_task
+
+  devise_for :users
+  resources :users
+
   resources :tasks
+
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

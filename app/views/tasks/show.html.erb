@@ -1,0 +1,14 @@
+<h1><%= @task.title %></h1>
+<h3><%= @task.project.title %></h3>
+<h3><%= @task.due_date.to_formatted_s(:long) %></h3>
+<% if @task.complete %>
+
+<h3>Completed!</h3>
+<p>Completed on: <%= @task.completion_date.to_formatted_s(:long) %></p>
+
+<% else %>
+
+<%= link_to "edit", edit_task_path(@task) %>
+<%= link_to "COMPLETE", complete_task_path(@task) %>
+
+<% end %>

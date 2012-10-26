@@ -1,0 +1,10 @@
+<h1>Hello, <%= @user.email %></h1>
+
+<h3>Your Remaining Tasks</h3>
+<ul>
+<% @user.tasks.each do |task| %>
+	<% unless task.complete %>
+	<li><%= link_to task.title, task %></li>
+	<% end %>
+<% end %>
+</ul>
