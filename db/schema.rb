@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025182838) do
+ActiveRecord::Schema.define(:version => 20121026050906) do
 
   create_table "inbox_items", :force => true do |t|
     t.string   "title",       :null => false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20121025182838) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "creator_id"
   end
 
   create_table "inboxes", :force => true do |t|

@@ -15,6 +15,8 @@ Gtddd::Application.routes.draw do
 
   resources :projects
 
+  resources :inbox_items
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

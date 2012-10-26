@@ -11,3 +11,7 @@ user = User.create! :name => "First User", :email => "user@example.com", :passwo
 puts 'New User Created ' << user.name
 user2 = User.create! :name => "Second User", :email => "user2@example.com", :password => "please", :password_confirmation => "please"
 puts 'New User Created ' << user2.name
+
+puts "Setting up inbox"
+inbox = Inbox.create :title => "Design"
+puts "Inbox Created"
