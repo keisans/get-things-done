@@ -1,5 +1,7 @@
 <h1>Inbox</h1>
 
+<%= link_to "New Inbox Item", new_inbox_item_path %>
+
 <% @items.each do |item| %>
-	<p><%= item.title %></p>
+	<li><%= link_to item.title, item %></li>
 <% end %>

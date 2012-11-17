@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :due_date, :parent_id, :project_id, :title, :user_id
+  attr_accessible :due_date, :parent_id, :project_id, :title, :user_id, :description
 
   belongs_to :project
   belongs_to :user
@@ -14,12 +14,5 @@ class Task < ActiveRecord::Base
   scope :completed, where(:complete => true)
 
   scope :incomplete, where(:complete => false)
-
-  def before_validation
-    date = Chronic.parse(due_date)
-    self.due_date = date.to_s(:db)
-  end
-
-  private
 
 end

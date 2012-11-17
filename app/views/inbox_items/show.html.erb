@@ -1,0 +1,7 @@
+<h1><%= @item.title %></h1>
+<% if @item.project %>
+	<h2><%= @item.project.title %></h2>
+<% end %>
+<% if @item.due_date %>
+	<h2><%= @item.due_date.to_formatted_s(:long) %></h2>
+<% end %>

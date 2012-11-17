@@ -1,9 +1,10 @@
 <%= semantic_form_for @task do |form| %>
 	<%= form.inputs do %>
 		<%= form.input :title %>
-		<%= form.input :project %>
-		<%= form.input :due_date, :as => :string %>
-		<%= form.input :user %>
+		<%= form.input :project_id, :as => :string, :input_html => { :class => 'projectInput' }%>
+		<%= form.input :due_date, :as => :string, :input_html => { :class => 'datePick' } %>
+		<%= form.input :user, :input_html => { :class => 'userInput' }%>
+		<%= form.input :description %>
 	<% end %>
 	<%= form.actions %>
 <% end %>

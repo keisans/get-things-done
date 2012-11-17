@@ -1,4 +1,10 @@
 <%= semantic_form_for @inbox_item do |form| %>
-	<%= form.inputs %>
+	<%= form.inputs do %>
+		<%= form.input :title %>
+		<%= form.input :project_id, :as => :string, :input_html => { :class => 'projectInput' } %>
+		<%= form.input :due_date, :as => :string, :input_html => { :class => 'datePick' } %>
+		<%= form.input :user, :input_html => { :class => 'userInput' }%>
+		<%= form.input :description %>
+	<% end %>
 	<%= form.actions %>
 <% end %>
